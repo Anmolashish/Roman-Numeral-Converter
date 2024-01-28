@@ -1,0 +1,82 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+  gap: 2rem;
+  background: linear-gradient(
+    180deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(9, 9, 121, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  animation: gradient-animation 10s infinite linear;
+  color: white;
+}
+
+@keyframes gradient-animation {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+h2 {
+  font-family: "Courier New", Courier, monospace;
+}
+
+#input-div {
+  display: flex;
+  width: 350px;
+  flex-direction: column;
+  gap: 1em;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 20px 30px 20px;
+}
+
+.glass-style {
+  background: rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+#number {
+  height: 2rem;
+  width: 20rem;
+}
+
+#convert-btn {
+  height: 2rem;
+  width: 20rem;
+  background-color: #ffc300;
+  border: none;
+  border-radius: 5px;
+}
+
+#output {
+  width: 350px;
+  padding: 20px;
+  text-align: center;
+}
+
+.wrong-answer {
+  background: rgba(242, 10, 10, 0.3);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(6.5px);
+  -webkit-backdrop-filter: blur(6.5px);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}

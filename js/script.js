@@ -2,6 +2,8 @@ const input = document.getElementById("number");
 const convertBtn = document.getElementById("convert-btn");
 const output = document.getElementById("output");
 
+output.style.display = "none";
+
 const romanNumbers = {
   1: "I",
   2: "II",
@@ -51,13 +53,6 @@ const convertToRomanNumber = (value) => {
     while (value > 0) {
       const remainder = value % 10;
       value = parseInt(value / 10);
-      console.log(
-        value +
-          " gives the remainder of : " +
-          remainder +
-          " and the temp of " +
-          temp
-      );
 
       result = convertation(remainder, temp++) + result;
     }
@@ -65,14 +60,26 @@ const convertToRomanNumber = (value) => {
   return result;
 };
 
-convertBtn.addEventListener("click", () => {
+const basicConditions = () => {
+  output.style.display = "";
   if (input.value === "") {
     output.innerText = "Please enter a valid number";
+    output.classList.add("wrong-answer");
   } else if (input.value < 1) {
     output.innerText = "Please enter a number greater than or equal to 1";
+    output.classList.add("wrong-answer");
   } else if (input.value > 3999) {
     output.innerText = "Please enter a number less than or equal to 3999";
+    output.classList.add("wrong-answer");
   } else {
+    output.classList.remove("wrong-answer");
     output.innerText = convertToRomanNumber(parseInt(input.value));
+  }
+};
+
+convertBtn.addEventListener("click", basicConditions);
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    basicConditions();
   }
 });
